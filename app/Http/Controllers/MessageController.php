@@ -36,11 +36,11 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $msg = new Message;
-        $msg->user_id = $request->user_id;
-        $msg->user_name = $request->user_name;
-        $msg->message = $request->message;
-        $msg->server = $request->server;
-        $msg->channel = $request->channel;
+        $msg->user_id = $request->input('user_id');
+        $msg->user_name = $request->input('user_name');
+        $msg->message = $request->input('message');
+        $msg->server = $request->input('server');
+        $msg->channel = $request->input('channel');
         $msg->save();
         return response()->json($msg);
     }
